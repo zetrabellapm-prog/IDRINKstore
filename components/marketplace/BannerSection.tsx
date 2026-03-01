@@ -38,6 +38,7 @@ export function BannerSection({ stores }: BannerSectionProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
             />
 
             {/* Dark Gradient Overlay */}
