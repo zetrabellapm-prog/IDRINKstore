@@ -1,0 +1,102 @@
+import type { Loja, Pedido } from './context'
+
+const produtosDrinksExpress = [
+  { id: 'p1',  nome: 'Heineken Long Neck 330ml',      categoria: 'Cerveja',     descricao: 'Cerveja premium holandesa gelada',        preco: 7.90,   estoque: 50, destaque: true,  disponivel: true },
+  { id: 'p2',  nome: 'Budweiser Pack 12 Latas',        categoria: 'Cerveja',     descricao: 'Pack economico para a galera',            preco: 49.90,  estoque: 20, destaque: false, disponivel: true },
+  { id: 'p3',  nome: "Jack Daniel's 1L",               categoria: 'Whisky',      descricao: 'Tennessee whiskey original',              preco: 189.90, estoque: 8,  destaque: true,  disponivel: true },
+  { id: 'p4',  nome: 'Red Bull 250ml',                 categoria: 'Energetico',  descricao: 'Energy drink original',                  preco: 12.90,  estoque: 30, destaque: false, disponivel: true },
+  { id: 'p5',  nome: 'Vodka Absolut 750ml',            categoria: 'Vodka',       descricao: 'Vodka sueca premium',                    preco: 79.90,  precoOriginal: 89.90, estoque: 15, destaque: false, disponivel: true },
+  { id: 'p6',  nome: 'Corona Extra 330ml',             categoria: 'Cerveja',     descricao: 'Cerveja mexicana com limao',             preco: 9.90,   estoque: 40, destaque: false, disponivel: true },
+  { id: 'p7',  nome: 'Gin Tanqueray 750ml',            categoria: 'Gin',         descricao: 'London dry gin classico',               preco: 119.90, estoque: 10, destaque: false, disponivel: true },
+  { id: 'p8',  nome: 'Combo Festa',                    categoria: 'Combos',      descricao: '24 Heineken + 2 Absolut — economize R$30!', preco: 189.90, precoOriginal: 220.00, estoque: 5, destaque: true, disponivel: true },
+  { id: 'p9',  nome: 'Agua Mineral 500ml',             categoria: 'Agua',        descricao: 'Agua mineral gelada',                   preco: 3.50,   estoque: 100, destaque: false, disponivel: true },
+  { id: 'p10', nome: 'Coca-Cola 2L',                   categoria: 'Refrigerante',descricao: 'Refrigerante gelado',                   preco: 12.90,  estoque: 25, destaque: false, disponivel: true },
+  { id: 'p11', nome: 'Skol Beats Senses 269ml',        categoria: 'Cerveja',     descricao: 'Bebida alcoolica sabor frutas',         preco: 6.90,   estoque: 35, destaque: false, disponivel: true },
+  { id: 'p12', nome: 'Monster Energy 473ml',           categoria: 'Energetico',  descricao: 'Energy drink sabor original',           preco: 14.90,  estoque: 20, destaque: false, disponivel: true },
+]
+
+export const lojasIniciais: Loja[] = [
+  {
+    id: 'loja-1', slug: 'drinks-express', nome: 'Drinks Express', comercianteId: 'comerciante-demo',
+    descricao: 'As melhores bebidas geladas da cidade, entregue em 30 min',
+    categoria: 'Mix Completo', avaliacao: 4.2, totalAvaliacoes: 127,
+    tempoEntrega: '25-35 min', freteGratis: 80, taxaEntrega: 5.99,
+    horarioAbertura: '10:00', horarioFechamento: '23:00',
+    whatsapp: '5511999887766', notificacoesWhatsapp: true,
+    pixChave: '', pixTipo: '', ativo: true, aberto: true,
+    createdAt: Date.now(), produtos: produtosDrinksExpress,
+  },
+  {
+    id: 'loja-2', slug: 'adega-premium', nome: 'Adega Premium', comercianteId: 'comerciante-2',
+    descricao: 'Vinhos, whiskeys e destilados importados com entrega expressa',
+    categoria: 'Whisky & Destilados', avaliacao: 4.5, totalAvaliacoes: 89,
+    tempoEntrega: '35-50 min', freteGratis: 120, taxaEntrega: 7.99,
+    horarioAbertura: '12:00', horarioFechamento: '22:00',
+    whatsapp: '5511988776655', notificacoesWhatsapp: true,
+    pixChave: '', pixTipo: '', ativo: true, aberto: true,
+    createdAt: Date.now(),
+    produtos: [
+      { id: 'a1', nome: 'Johnnie Walker Black 750ml', categoria: 'Whisky',  descricao: 'Blended scotch 12 anos',       preco: 159.90, estoque: 12, destaque: true,  disponivel: true },
+      { id: 'a2', nome: 'Vinho Merlot Chileno 750ml', categoria: 'Vinho',   descricao: 'Vinho tinto suave',            preco: 45.90,  estoque: 30, destaque: false, disponivel: true },
+      { id: 'a3', nome: 'Aperol 750ml',               categoria: 'Outros',  descricao: 'Licor italiano para spritz',  preco: 89.90,  estoque: 15, destaque: true,  disponivel: true },
+      { id: 'a4', nome: "Gin Hendrick's 750ml",        categoria: 'Gin',     descricao: 'Gin escoces pepino e rosa',   preco: 179.90, precoOriginal: 199.90, estoque: 8, destaque: true, disponivel: true },
+      { id: 'a5', nome: 'Cachaca 51 670ml',            categoria: 'Outros',  descricao: 'Cachaca tradicional',         preco: 18.90,  estoque: 25, destaque: false, disponivel: true },
+      { id: 'a6', nome: 'Campari 700ml',               categoria: 'Outros',  descricao: 'Bitter italiano classico',   preco: 79.90,  estoque: 10, destaque: false, disponivel: true },
+    ],
+  },
+  {
+    id: 'loja-3', slug: 'bar-do-ze', nome: 'Bar do Ze', comercianteId: 'comerciante-3',
+    descricao: 'Cervejas artesanais e chopps gelados direto pra voce',
+    categoria: 'Cerveja & Drinks', avaliacao: 3.8, totalAvaliacoes: 54,
+    tempoEntrega: '20-30 min', freteGratis: 60, taxaEntrega: 4.99,
+    horarioAbertura: '14:00', horarioFechamento: '01:00',
+    whatsapp: '5511977665544', notificacoesWhatsapp: true,
+    pixChave: '', pixTipo: '', ativo: true, aberto: true,
+    createdAt: Date.now(),
+    produtos: [
+      { id: 'z1', nome: 'IPA Artesanal 500ml',    categoria: 'Cerveja', descricao: 'Lupulo intenso, cor ambar',       preco: 18.90, estoque: 20, destaque: true,  disponivel: true },
+      { id: 'z2', nome: 'Chopp Escuro 600ml',      categoria: 'Cerveja', descricao: 'Dark lager encorpada',           preco: 14.90, estoque: 30, destaque: false, disponivel: true },
+      { id: 'z3', nome: 'Pilsen Artesanal 600ml',  categoria: 'Cerveja', descricao: 'Leve e refrescante',            preco: 12.90, estoque: 40, destaque: false, disponivel: true },
+      { id: 'z4', nome: 'Combo 6 Artesanais',      categoria: 'Combos', descricao: '2 IPA + 2 Escura + 2 Pilsen',    preco: 79.90, precoOriginal: 95.40, estoque: 10, destaque: true, disponivel: true },
+    ],
+  },
+]
+
+export const pedidosIniciais: Pedido[] = [
+  {
+    id: 'iDK-2841', lojaId: 'loja-1', lojaNome: 'Drinks Express',
+    usuarioId: 'user-1', usuarioNome: 'Joao Silva', usuarioTelefone: '(11) 99999-1234',
+    itens: [{ nome: 'Heineken Long Neck 330ml', quantidade: 3, preco: 7.90 }, { nome: 'Red Bull 250ml', quantidade: 2, preco: 12.90 }],
+    total: 87.80, subtotal: 81.81, taxaEntrega: 5.99, desconto: 0,
+    pagamento: 'Pix', status: 'Entregue',
+    createdAt: Date.now() - 86400000 * 3, updatedAt: Date.now() - 86400000 * 3,
+    endereco: { cep: '01310-100', rua: 'Av. Paulista', numero: '1000', complemento: 'Apto 42', bairro: 'Bela Vista', cidade: 'Sao Paulo', estado: 'SP', referencia: 'Proximo ao MASP', tipo: 'casa' },
+  },
+  {
+    id: 'iDK-2756', lojaId: 'loja-2', lojaNome: 'Adega Premium',
+    usuarioId: 'user-1', usuarioNome: 'Joao Silva', usuarioTelefone: '(11) 99999-1234',
+    itens: [{ nome: "Jack Daniel's 1L", quantidade: 1, preco: 189.90 }, { nome: 'Coca-Cola 2L', quantidade: 2, preco: 12.90 }],
+    total: 223.69, subtotal: 215.70, taxaEntrega: 7.99, desconto: 0,
+    pagamento: 'Cartao de Credito', status: 'Entregue',
+    createdAt: Date.now() - 86400000 * 10, updatedAt: Date.now() - 86400000 * 10,
+    endereco: { cep: '01310-100', rua: 'Av. Paulista', numero: '1000', complemento: '', bairro: 'Bela Vista', cidade: 'Sao Paulo', estado: 'SP', referencia: '', tipo: 'casa' },
+  },
+  {
+    id: 'iDK-2698', lojaId: 'loja-1', lojaNome: 'Drinks Express',
+    usuarioId: 'user-1', usuarioNome: 'Joao Silva', usuarioTelefone: '(11) 99999-1234',
+    itens: [{ nome: 'Vodka Absolut 750ml', quantidade: 1, preco: 79.90 }],
+    total: 85.89, subtotal: 79.90, taxaEntrega: 5.99, desconto: 0,
+    pagamento: 'Dinheiro', status: 'Cancelado',
+    createdAt: Date.now() - 86400000 * 15, updatedAt: Date.now() - 86400000 * 15,
+    endereco: { cep: '01310-100', rua: 'Av. Paulista', numero: '1000', complemento: '', bairro: 'Bela Vista', cidade: 'Sao Paulo', estado: 'SP', referencia: '', tipo: 'casa' },
+  },
+  {
+    id: 'iDK-2601', lojaId: 'loja-3', lojaNome: 'Bar do Ze',
+    usuarioId: 'user-1', usuarioNome: 'Joao Silva', usuarioTelefone: '(11) 99999-1234',
+    itens: [{ nome: 'Combo 6 Artesanais', quantidade: 2, preco: 79.90 }, { nome: 'IPA Artesanal 500ml', quantidade: 4, preco: 18.90 }],
+    total: 239.39, subtotal: 235.40, taxaEntrega: 4.99, desconto: 0,
+    pagamento: 'Pix', status: 'Entregue',
+    createdAt: Date.now() - 86400000 * 30, updatedAt: Date.now() - 86400000 * 30,
+    endereco: { cep: '01310-100', rua: 'Av. Paulista', numero: '1000', complemento: '', bairro: 'Bela Vista', cidade: 'Sao Paulo', estado: 'SP', referencia: '', tipo: 'casa' },
+  },
+]
