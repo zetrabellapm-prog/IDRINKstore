@@ -7,6 +7,8 @@ import {
 } from 'lucide-react'
 import { useIDrink } from '@/lib/context'
 
+console.log("[v0] Home page module loaded")
+
 /* -- BANNERS PROMOCIONAIS -- */
 const banners = [
   {

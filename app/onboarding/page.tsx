@@ -6,9 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedLogo } from "@/components/onboarding/AnimatedLogo";
 import { User, Store, ArrowRight, Sparkles } from "lucide-react";
 
+console.log("[v0] Onboarding page module loaded");
+
 type UserRole = "user" | "merchant";
 
 export default function OnboardingPage() {
+  console.log("[v0] OnboardingPage rendering");
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
