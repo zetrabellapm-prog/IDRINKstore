@@ -4,9 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BottomNav } from "@/components/layout/BottomNav";
-import { CartProvider } from "@/contexts/CartContext";
-import { IDrinkProvider } from "@/lib/context";
-import { ToastContainer } from "@/components/Toast";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -43,15 +41,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <IDrinkProvider>
-          <CartProvider>
-            <Navbar />
-            <main className="min-h-screen pb-20 pt-16 md:pb-0">{children}</main>
-            <Footer />
-            <BottomNav />
-          </CartProvider>
-          <ToastContainer />
-        </IDrinkProvider>
+        <Providers>
+          <Navbar />
+          <main className="min-h-screen pb-20 pt-16 md:pb-0">{children}</main>
+          <Footer />
+          <BottomNav />
+        </Providers>
         <Analytics />
       </body>
     </html>

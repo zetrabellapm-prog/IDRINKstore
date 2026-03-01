@@ -1,4 +1,4 @@
-import type { Loja, Pedido } from './context'
+import type { Loja, Pedido } from './types'
 
 export function notificarComercianteWhatsApp(loja: Loja, pedido: Pedido) {
   if (typeof window === 'undefined') return

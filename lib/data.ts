@@ -1,4 +1,4 @@
-import type { Loja, Pedido } from './context'
+import type { Loja, Pedido } from './types'
 
 const produtosDrinksExpress = [
   { id: 'p1',  nome: 'Heineken Long Neck 330ml',      categoria: 'Cerveja',     descricao: 'Cerveja premium holandesa gelada',        preco: 7.90,   estoque: 50, destaque: true,  disponivel: true },
