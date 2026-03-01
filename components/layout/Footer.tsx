@@ -1,6 +1,15 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/comerciante")) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-border/50 bg-secondary">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-8 text-center md:flex-row md:justify-between md:text-left lg:px-8">

@@ -24,6 +24,11 @@ export function Navbar() {
     setUserName(name);
   }, []);
 
+  // Hide navbar on merchant dashboard
+  if (pathname?.startsWith("/comerciante")) {
+    return null;
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">

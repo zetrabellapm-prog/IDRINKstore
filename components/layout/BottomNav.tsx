@@ -33,8 +33,8 @@ export function BottomNav() {
   const pathname = usePathname();
   const { totalItems } = useCart();
 
-  // Don't show on onboarding
-  if (pathname === "/onboarding" || pathname === "/") {
+  // Don't show on onboarding or merchant area
+  if (pathname === "/onboarding" || pathname === "/" || pathname?.startsWith("/comerciante")) {
     return null;
   }
 
