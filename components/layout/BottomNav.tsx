@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Compass, Package, User, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { useIDrink } from "@/lib/context";
 
 const navItems = [
   {
@@ -32,6 +33,9 @@ const navItems = [
 export function BottomNav() {
   const pathname = usePathname();
   const { totalItems } = useCart();
+  const { carrinho } = useIDrink();
+  const idrinkCartCount = carrinho.itens.reduce((s, i) => s + i.quantidade, 0);
+  const combinedTotal = totalItems + idrinkCartCount;
 
   // Don't show on onboarding
   if (pathname === "/onboarding" || pathname === "/") {
@@ -44,7 +48,7 @@ export function BottomNav() {
         {navItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
           const Icon = item.icon;
-          const showBadge = item.showBadge && totalItems > 0;
+          const showBadge = item.showBadge && combinedTotal > 0;
 
           return (
             <Link
@@ -60,7 +64,7 @@ export function BottomNav() {
                 <Icon className="h-5 w-5" />
                 {showBadge && (
                   <span className="absolute -right-2 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-                    {totalItems > 9 ? "9+" : totalItems}
+                    {combinedTotal > 9 ? "9+" : combinedTotal}
                   </span>
                 )}
               </div>

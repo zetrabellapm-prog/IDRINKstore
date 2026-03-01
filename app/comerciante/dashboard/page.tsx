@@ -211,8 +211,8 @@ function VisaoGeral({ loja, pedidosLoja, pedidosNovos, atualizarStatusPedido, to
             const dayPedidos = pedidosLoja.filter((p: any) => p.status === 'Entregue' && new Date(p.createdAt).toDateString() === day.toDateString())
             const dayTotal = dayPedidos.reduce((s: number, p: any) => s + p.total, 0)
             const maxH = 100
-            const h = Math.max(4, (dayTotal / Math.max(faturamentoMes() || 500, 1)) * maxH)
-            function faturamentoMes() { return pedidosLoja.filter((p: any) => p.status === 'Entregue').reduce((s: number, p: any) => s + p.total, 0) }
+            const totalFat = faturamentoMes || 500
+            const h = Math.max(4, (dayTotal / Math.max(totalFat, 1)) * maxH)
             return (
               <div key={i} className="flex flex-1 flex-col items-center gap-1">
                 <div className="w-full rounded-t-lg bg-[#e63946]" style={{ height: `${Math.min(h, maxH)}px` }} />

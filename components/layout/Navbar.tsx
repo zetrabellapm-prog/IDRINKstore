@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 import { User, Store, Menu, X, ShoppingCart } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
+import { useIDrink } from "@/lib/context";
 
 const navLinks = [
   { href: "/home", label: "Marketplace" },
@@ -18,6 +19,9 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
   const { totalItems } = useCart();
+  const { carrinho } = useIDrink();
+  const idrinkCartCount = carrinho.itens.reduce((s, i) => s + i.quantidade, 0);
+  const combinedTotal = totalItems + idrinkCartCount;
 
   useEffect(() => {
     const name = localStorage.getItem("idrink_user_name");
@@ -61,9 +65,9 @@ export function Navbar() {
             className="relative flex items-center justify-center rounded-xl border border-border/50 p-2.5 text-muted-foreground transition-all hover:border-[#ea1d2c]/30 hover:text-[#ea1d2c]"
           >
             <ShoppingCart className="h-5 w-5" />
-            {totalItems > 0 && (
+            {combinedTotal > 0 && (
               <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                {totalItems > 9 ? "9+" : totalItems}
+                {combinedTotal > 9 ? "9+" : combinedTotal}
               </span>
             )}
           </Link>
